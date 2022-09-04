@@ -39,10 +39,19 @@ class MosparoWidget extends Widget
                     let options = <?php echo json_encode($options); ?>;
 
                     new mosparo("mosparo-box-<?php echo $instanceId; ?>", "<?php echo $host; ?>", "<?php echo $uuid; ?>", "<?php echo $publicKey; ?>", options);
+
+                    $(document).on('blur', 'div.redactor-box', function (ev) {
+                        let textarea = this.getElementsByTagName('textarea')[0];
+                        textarea.textContent = $R(textarea, 'source.getCode');
+                        textarea.dispatchEvent(new Event('change'));
+                    });
+
+                    $(document).on('submit-aborted', 'form', function (ev) {
+                        $('#overlay, #loading').hide();
+                    });
                 };
 
                 document.getElementsByTagName("head")[0].appendChild(script);
-
             })();
         </script>
 
