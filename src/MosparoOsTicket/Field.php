@@ -43,9 +43,9 @@ class Field extends FormField
 
             try {
                 $result = $client->validateSubmission($data, $mosparoSubmitToken, $mosparoValidationToken);
-                $validationData['valid'] = $result;
+                $validationData['valid'] = $result->isSubmittable();
 
-                if (!$result) {
+                if (!$result->isSubmittable()) {
                     $validationData['errors'] = ['Form submission not valid.'];
                 }
             } catch (Exception $e) {
@@ -106,9 +106,9 @@ class Field extends FormField
             if (is_array($value)) {
                 foreach ($value as $subKey => $subValue) {
                     if (is_numeric($subKey)) {
-                        $convertedData[$key . '[]'] = $subValue;
+                        $convertedData[$key][] = $subValue;
                     } else {
-                        $convertedData[$key . '[' . $subKey . ']'] = $subValue;
+                        $convertedData[$key][$subKey] = $subValue;
                     }
                 }
             } else {
