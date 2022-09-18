@@ -1,20 +1,17 @@
 {
-  "name": "mosparo/osticket-plugin",
-  "description": "Plugin for osTicket to integrate mosparo.",
-  "homepage": "https://mosparo.io/integrations/osticket/",
-  "keywords": ["mosparo", "osticket", "plugin"],
-  "type": "osticket-plugin",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "mosparo",
-      "homepage": "https://mosparo.io"
+    "name": "mosparo/osticket-plugin",
+    "description": "Plugin for osTicket to integrate mosparo.",
+    "homepage": "https://mosparo.io/integrations/osticket/",
+    "keywords": ["mosparo", "osticket", "plugin"],
+    "type": "osticket-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mosparo",
+            "homepage": "https://mosparo.io"
+        }
+    ],
+    "require": {
+        "mosparo/php-api-client": "^v1.0"
     }
-  ],
-  "require": {
-    "mosparo/php-api-client": "dev-master"
-  },
-  "repositories": [
-    { "type": "vcs", "url": "https://github.com/mosparo/php-api-client.git" }
-  ]
 }
