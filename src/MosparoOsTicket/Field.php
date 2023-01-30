@@ -22,6 +22,11 @@ class Field extends FormField
 
         parent::validateEntry($value);
 
+        // Do not execute the mosparo validation if the field is invisible (in example for the staff)
+        if (!$this->isMosparoVisible()) {
+            return;
+        }
+
         $id = $this->get('id');
         $validationData = &$validation[$id];
 
@@ -62,6 +67,27 @@ class Field extends FormField
                 $this->_errors[] = $e;
             }
         }
+    }
+
+    public function isMosparoVisible(): bool
+    {
+        global $thisstaff;
+
+        $mode = 'client';
+        if ($thisstaff != null && $thisstaff instanceof \Staff) {
+            $mode = 'staff';
+        }
+
+        $visible = false;
+        if ($mode === 'staff' && $this->isVisibleToStaff()) {
+            $visible = true;
+        }
+
+        if ($mode === 'client' && $this->isVisibleToUsers()) {
+            $visible = true;
+        }
+
+        return $visible;
     }
 
     protected function cleanData($data)

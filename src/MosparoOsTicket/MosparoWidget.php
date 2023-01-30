@@ -12,6 +12,11 @@ class MosparoWidget extends Widget
         $fieldConfig = $this->field->getConfiguration();
         $pluginConfig = $this->field->getPluginConfig()->getInfo();
 
+        if (!$this->field->isMosparoVisible()) {
+            echo 'Spam protection disabled.';
+            return;
+        }
+
         $options = [
             'loadCssResource' => $pluginConfig['mosparoLoadCssResourceOnInitialization']
         ];
