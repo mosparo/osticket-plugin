@@ -16,6 +16,10 @@ class Field extends FormField
         return static::$pluginConfig;
     }
 
+    function isBlockLevel() {
+        return true;
+    }
+
     public function validateEntry($value)
     {
         static $validation = array();
