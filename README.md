@@ -20,7 +20,7 @@ The osTicket plugin adds the required functionality to your osTicket installatio
 
 Please see our [How to use](https://mosparo.io/how-to-use/) introduction on our website to learn how to use mosparo in your form.
 
-In step 3 of the how-to-use explanation, you must integrate mosparo into your osTicket. Please follow the [Installation](#installation) part below for this process.
+In step 3 of the how-to-use explanation, you must integrate mosparo into your osTicket installation. Please follow the [Installation](#installation) part below for this process.
 
 ## Requirements
 
