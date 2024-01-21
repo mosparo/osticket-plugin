@@ -13,6 +13,18 @@ class Field extends FormField
 
     public function getPluginConfig()
     {
+        global $osTicketOtherScriptSources;
+
+        $config = static::$pluginConfig->getInfo();
+
+        if ($config !== null && isset($config['mosparoHost'])) {
+            if (!isset($osTicketOtherScriptSources)) {
+                $osTicketOtherScriptSources = [];
+            }
+
+            $osTicketOtherScriptSources[] = $config['mosparoHost'];
+        }
+
         return static::$pluginConfig;
     }
 
